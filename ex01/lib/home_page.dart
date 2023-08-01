@@ -5,15 +5,20 @@ final class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'A simple text',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold),
+            Container(
+              color: theme.colorScheme.primaryContainer,
+              child: Text(
+                'A simple text',
+                textAlign: TextAlign.center,
+                style: theme.textTheme.headlineLarge
+                    ?.apply(color: theme.colorScheme.onPrimaryContainer),
+              ),
             ),
             const SizedBox(
               height: 8,
