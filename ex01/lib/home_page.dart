@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
-final class HomePage extends StatelessWidget {
+final class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+final class _HomePageState extends State<HomePage> {
+  String textToShow = 'A simple text';
+  bool ti = true;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +22,7 @@ final class HomePage extends StatelessWidget {
             Container(
               color: theme.colorScheme.primaryContainer,
               child: Text(
-                'A simple text',
+                textToShow,
                 textAlign: TextAlign.center,
                 style: theme.textTheme.headlineLarge
                     ?.apply(color: theme.colorScheme.onPrimaryContainer),
@@ -25,9 +33,17 @@ final class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
                 onPressed: () {
-                  debugPrint("Button pressed");
+                  debugPrint('Button pressed');
+                  ti = !ti;
+                  setState(() {
+                    if (ti) {
+                      textToShow = "A simple text";
+                    } else {
+                      textToShow = "Hello World!";
+                    }
+                  });
                 },
-                child: const Text("Click me"))
+                child: const Text('Click me'))
           ],
         ),
       ),
