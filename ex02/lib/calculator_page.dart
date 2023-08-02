@@ -1,3 +1,4 @@
+import 'package:calculator/widget/calculator.pad.dart';
 import 'package:calculator/widget/calculator_text.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,8 @@ class CalculatorPage extends StatelessWidget {
             CalculatorText(value: "0"),
             SizedBox(height: 16),
             CalculatorText(value: "0"),
+            Spacer(),
+            Expanded(flex: 2, child: CalculatorPad())
           ],
         ),
       ),
