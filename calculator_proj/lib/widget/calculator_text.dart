@@ -9,18 +9,16 @@ class CalculatorText extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        SizedBox(
-          child: Text(
-            value,
-            textAlign: TextAlign.end,
-            style: theme.textTheme.displayLarge,
-          ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      reverse: true,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Text(
+          value,
+          style: theme.textTheme.displayLarge,
         ),
-        const SizedBox(width: 18)
-      ],
+      ),
     );
   }
 }

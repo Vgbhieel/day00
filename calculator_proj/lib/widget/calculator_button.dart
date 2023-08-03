@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class CalculatorButton extends StatelessWidget {
   final String text;
+  final Function(String) onButtonClicked;
 
   const CalculatorButton({
     super.key,
     required this.text,
+    required this.onButtonClicked,
   });
 
   @override
@@ -22,7 +24,7 @@ class CalculatorButton extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.zero),
             ))),
         onPressed: () {
-          debugPrint('Button pressed: $text');
+          onButtonClicked.call(text);
         },
         child: Text(
           text,
